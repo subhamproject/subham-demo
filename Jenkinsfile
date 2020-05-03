@@ -21,7 +21,7 @@ pipeline {
             steps {
             ansiColor('xterm') {
                 sh '''
-                docker build -t subham-test-image .
+                docker build -t test-image .
                 '''
             }
 
@@ -32,7 +32,7 @@ pipeline {
             ansiColor('xterm') {
                 sh '''
                 docker login -u mandalsubham -p "${DOCKER_PASS}"
-                docker tag subham-test-image mandalsubham/subham-demo:secondimage
+                docker tag test-image mandalsubham/subham-demo:thirdimage
                 '''
             }
         }
@@ -41,7 +41,7 @@ pipeline {
             steps {
             ansiColor('xterm') {
                 sh '''
-                docker push mandalsubham/subham-demo:secondimage
+                docker push mandalsubham/subham-demo:thirdimage
                 '''
             }
             }
