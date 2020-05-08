@@ -12,7 +12,9 @@ pipeline {
             steps {
             ansiColor('xterm') {
                 sh '''
-             [ -n "$(docker ps -qa)" ] && docker ps -qa|xargs docker rm -f
+            if [ "$(docker ps -qa|wc -l)" -gt "0" ];then
+            docker ps -qa|xargs docker rm -f
+            fi
                 '''
             }
             }
@@ -74,7 +76,9 @@ pipeline {
             steps {
             ansiColor('xterm') {
                 sh '''
-               [ -n "$(docker ps -qa)" ] && docker ps -qa|xargs docker rm -f
+               if [ "$(docker ps -qa|wc -l)" -gt 0 ];then
+               docker ps -qa|xargs docker rm -f
+               fi
                 '''
             }
             }
