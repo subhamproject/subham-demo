@@ -70,7 +70,7 @@ pipeline {
             }
             }
         }
-      stage('Delete old containers') {
+      stage('Delete docker containers') {
             steps {
             ansiColor('xterm') {
                 sh '''
