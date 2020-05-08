@@ -8,6 +8,15 @@ pipeline {
    }
     agent any
     stages {
+      stage('Delete old containers') {
+            steps {
+            ansiColor('xterm') {
+                sh '''
+                docker ps -qa|xargs docker rm -f
+                '''
+            }
+            }
+        }
         stage('Maven Build') {
             steps {
             ansiColor('xterm') {
@@ -57,6 +66,15 @@ pipeline {
             ansiColor('xterm') {
                 sh '''
                 docker push mandalsubham/subham-demo:secondimage
+                '''
+            }
+            }
+        }
+      stage('Delete old containers') {
+            steps {
+            ansiColor('xterm') {
+                sh '''
+                docker ps -qa|xargs docker rm -f
                 '''
             }
             }
