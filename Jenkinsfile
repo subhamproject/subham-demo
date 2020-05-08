@@ -12,7 +12,7 @@ pipeline {
             steps {
             ansiColor('xterm') {
                 sh '''
-                docker ps -qa|xargs docker rm -f
+             [ -n "$(docker ps -qa)" ] && docker ps -qa|xargs docker rm -f
                 '''
             }
             }
@@ -74,7 +74,7 @@ pipeline {
             steps {
             ansiColor('xterm') {
                 sh '''
-                docker ps -qa|xargs docker rm -f
+               [ -n "$(docker ps -qa)" ] && docker ps -qa|xargs docker rm -f
                 '''
             }
             }
