@@ -14,7 +14,7 @@ pipeline {
       stage('Read Var file') {
             steps {
               script {
-             var = load "vars.groovy"
+              load "vars.groovy"
             }
         }
         }
@@ -22,7 +22,7 @@ pipeline {
       stage('Display vars') {
             steps {
               script {
-                echo $name
+                echo ${name}
             }
         }
         }
