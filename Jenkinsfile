@@ -21,10 +21,8 @@ pipeline {
       
       stage('Display vars') {
             steps {
-            ansiColor('xterm') {
-              sh """
-               echo  ${var.name}
-             """
+              script {
+                echo  ${var.name}
             }
         }
         }
