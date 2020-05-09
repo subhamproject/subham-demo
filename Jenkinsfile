@@ -22,7 +22,8 @@ pipeline {
       stage('Display vars') {
             steps {
               script {
-                echo "${name}"
+                echo "First value is: ${name}"
+                echo "Second value is: ${pass}"
             }
         }
         }
