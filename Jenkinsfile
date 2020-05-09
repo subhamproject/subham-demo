@@ -15,7 +15,7 @@ pipeline {
             steps {
             ansiColor('xterm') {
               script {
-             var = load "var.groovy"
+             var = load "vars.groovy"
              echo "Variables are ${var.name}"
              echo "Second one is ${var.pass}"
             }
