@@ -22,10 +22,9 @@ pipeline {
       stage('Display vars') {
             steps {
             ansiColor('xterm') {
-              sh '''
-               echo 'First vars is ${name}'
-               echo 'Second one is ${pass}'
-             '''
+              sh """
+               echo  ${var.name}
+             """
             }
         }
         }
