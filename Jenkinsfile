@@ -13,10 +13,8 @@ pipeline {
       
       stage('Read Var file') {
             steps {
-            ansiColor('xterm') {
               script {
              var = load "vars.groovy"
-            }
             }
         }
         }
