@@ -22,7 +22,7 @@ pipeline {
       stage('Display vars') {
             steps {
               script {
-                echo  ${var.name}
+                echo  \$name
             }
         }
         }
