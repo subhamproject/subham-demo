@@ -23,8 +23,8 @@ pipeline {
             steps {
             ansiColor('xterm') {
               sh '''
-               echo "First vars is ${var.name}"
-               echo "Second one is ${var.pass}"
+               echo "First vars is ${name}"
+               echo "Second one is ${pass}"
              '''
             }
         }
