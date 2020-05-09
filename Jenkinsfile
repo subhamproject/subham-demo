@@ -1,3 +1,5 @@
+def var
+
 pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
@@ -8,6 +10,18 @@ pipeline {
    }
     agent any
     stages {
+      
+      stage('Read Var file') {
+            steps {
+            ansiColor('xterm') {
+                sh '''
+             var = load "var.groovy"
+             echo "Variables are ${var.name}"
+             echo "Second one is ${var.pass}"
+                '''
+            }
+            }
+        }
       stage('Delete old containers') {
             steps {
             ansiColor('xterm') {
