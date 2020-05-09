@@ -18,7 +18,6 @@ pipeline {
              var = load "var.groovy"
              echo "Variables are ${var.name}"
              echo "Second one is ${var.pass}"
-                '''
             }
             }
         }
