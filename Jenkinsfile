@@ -4,7 +4,7 @@ pipeline {
     disableConcurrentBuilds()
   }
   environment {
-      DOCKER_PASS = ""
+      DOCKER_PASS =
    }
     agent any
     stages {
@@ -39,7 +39,7 @@ pipeline {
             }
         }
         stage('Docker Tag') {
-          when { expression { DOCKER_PASS != null } }
+          when { expression { env.DOCKER_PASS != null } }
             steps {
             ansiColor('xterm') {
                 sh '''
@@ -50,7 +50,7 @@ pipeline {
         }
         }
        stage('Docker Image Scan') {
-         when { expression { DOCKER_PASS != null } }
+         when { expression { env.DOCKER_PASS != null } }
             steps {
             ansiColor('xterm') {
                 sh '''
@@ -67,7 +67,7 @@ pipeline {
         }
         }
         stage('Docker Image Push') {
-          when { expression { DOCKER_PASS != null } }
+          when { expression { env.DOCKER_PASS != null } }
             steps {
             ansiColor('xterm') {
                 sh '''
