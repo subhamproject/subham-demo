@@ -6,7 +6,7 @@ pipeline {
     disableConcurrentBuilds()
   }
   environment {
-      DOCKER_PASS = ''
+      DOCKER_PASS = Credentials('DOCKER_PASS')
    }
     agent any
     stages {
