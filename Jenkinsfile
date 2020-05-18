@@ -74,7 +74,7 @@ pipeline {
             ansiColor('xterm') {
             script {
                 sh '''
-                 scan.sh
+                 bash scan.sh
              '''
             }
         }
