@@ -72,6 +72,7 @@ pipeline {
          when { expression { env.DOCKER_PASS != null } }
             steps {
             ansiColor('xterm') {
+            script {
                 sh '''
               #!/bin/bash
               docker run -d --name db arminc/clair-db
@@ -85,6 +86,7 @@ pipeline {
             }
         }
         }
+       }
         stage('Docker Image Push') {
           when { expression { env.DOCKER_PASS != null } }
             steps {
